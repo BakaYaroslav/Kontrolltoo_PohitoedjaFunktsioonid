@@ -82,7 +82,7 @@ namespace YaroslavBaka_PõhitoedjaFunktsioonid
                 {
                     Console.WriteLine($"Vale andmetüüp, {e}");
                 }
-
+                 
             }
             ikstring = ik.ToString();
 
