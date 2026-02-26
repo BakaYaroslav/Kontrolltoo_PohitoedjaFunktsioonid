@@ -70,11 +70,15 @@ namespace YaroslavBaka_PõhitoedjaFunktsioonid
         {
             long ik = 0;
             string ikstring;
+            string aasta="";
+            string kuu= "";
+            string paev= "";
+
             while (true)
             {
                 try
                 {
-                    Console.Write("Sisesta isikukood: ");
+                    Console.Write($"Sisesta isikukood:  ");
                     ik = long.Parse(Console.ReadLine());
                     break;
                 }
@@ -90,7 +94,7 @@ namespace YaroslavBaka_PõhitoedjaFunktsioonid
             if (ikstring.Length != 11)
             {
                 Console.WriteLine("Viga! Isikukood peab olema 11-kohaline.");
-                return;
+                //return;
             }
 
             string sugu;
@@ -103,11 +107,25 @@ namespace YaroslavBaka_PõhitoedjaFunktsioonid
             else
                 sugu = "Tundmatu";
 
-            string aasta = ikstring.Substring(1, 2);
-            string kuu = ikstring.Substring(3, 2);
-            string paev = ikstring.Substring(5, 2);
+            if (int.Parse(ikstring.Substring(1, 2)) > 0 || int.Parse(ikstring.Substring(1, 2)) < 100)
+            { aasta = ikstring.Substring(1, 2); }
+            else
+            {
+                Console.WriteLine("vale isikukood");
+            }
+            if (int.Parse(ikstring.Substring(3, 2)) > 0 || int.Parse(ikstring.Substring(3, 2)) < 12) kuu = ikstring.Substring(3, 2);
+            else
+            {
+                Console.WriteLine("vale isikukood");
+            }
+            if (int.Parse(ikstring.Substring(5, 2)) > 0 || int.Parse(ikstring.Substring(5, 2)) < 31) paev = ikstring.Substring(5, 2);
+            else
+            {
+                Console.WriteLine("vale isikukood");
+            }
 
-            Console.WriteLine($"Oled {sugu}, sündinud {paev}.{kuu}.{aasta}");
+
+            Console.WriteLine($"Oled {sugu} sündinud {0}{1}{2}", paev,kuu,aasta);
         }
         public static void TaringuMang()
         {
